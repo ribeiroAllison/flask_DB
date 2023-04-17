@@ -47,6 +47,15 @@ class Review(db.Model):
     def __repr__(self):
         return "Review: {} stars: {}".format(self.text, self.stars)
 
+#declaring the Annotation model
+class Annotation(db.Model):
+    id = db.Column(db.Integer, primary_key = True)
+    text = db.Column(db.String(200), unique = False)
+    reviewer_id = db.Column(db.Integer, db.ForeignKey('reader.id'))
+    book_id = db.Column(db.Integer, db.ForeignKey('book.id'))
+    
+    def __repr__(self):
+        return '<Annotation {}-{}:{} >'.format(self.reviewer_id, self.book_id, self.text)
 
 #some routing for displaying the home page
 @app.route('/')
