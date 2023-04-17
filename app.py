@@ -1,5 +1,3 @@
-import sys
-sys.path.append('C:\\Users\\Allison Ribeiro\\coding\\flask3_db\\.venv\\Lib\\site-packages')
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 
