@@ -15,6 +15,7 @@ class Book(db.Model):
     author_surname = db.Column(db.String(80), index = True, unique = False) #author surname
     month = db.Column(db.String(20), index = True, unique = False) #the month of book suggestion
     year = db.Column(db.Integer, index = True, unique = False) #the year of book suggestion
+    reviews = db.relationship('Review', backref='book', lazy='dynamic') #relationship of Books and Reviews
     
     #Get a nice printout for Book objects
     def __repr__(self):
